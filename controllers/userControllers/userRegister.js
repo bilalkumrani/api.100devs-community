@@ -24,10 +24,10 @@ const userRegister = async (req, res) => {
           email,
           password,
           mailToken,
-          isVerified: true,
+          isVerified: false,
         });
-        // const verificationUrl = `${url}/${user._id}/verify/${mailToken}`;
-        // sendMail(email, "Verify Email", verificationUrl);
+        const verificationUrl = `${url}/${user._id}/verify/${mailToken}`;
+        sendMail(email, "Verify Email", verificationUrl);
         return res.status(200).json({ status: "ok", data: user });
       } catch (error) {
         return res.json({ status: "User not added", error });
