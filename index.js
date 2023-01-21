@@ -9,6 +9,7 @@ const userRegister = require("./controllers/userControllers/userRegister");
 const userVerify = require("./controllers/userControllers/userVerify");
 const authenticate = require("./middlewares/authenticate");
 require("dotenv").config();
+const port = process.env.PORT || 3000;
 
 // allowing cors for local enviroment
 const corsOptions = {
@@ -32,6 +33,6 @@ app.post("/login", login);
 app.get("/:id/verify/:token", userVerify);
 app.use("/user", authenticate, userRoutes);
 
-app.listen(process.env.API_PORT, () => {
-  console.log("listening on PORT: ", process.env.API_PORT);
+app.listen(port, () => {
+  console.log("listening on PORT: ", port);
 });
