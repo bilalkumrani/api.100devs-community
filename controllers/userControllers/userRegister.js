@@ -23,7 +23,7 @@ const userRegister = async (req, res) => {
           mailToken,
           isVerified: false,
         });
-        const verificationUrl = `${BASE_URL}/${user._id}/verify/${mailToken}`;
+        const verificationUrl = `${url}/${user._id}/verify/${mailToken}`;
         sendMail(email, "Verify Email", verificationUrl);
         return res.status(200).json({ status: "ok", data: user });
       } catch (error) {
