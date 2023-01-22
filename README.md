@@ -2,7 +2,7 @@
 
 
 This is the repo for the showcase website (backend) of the #100DEVS Community (Unofficial)
-Check out the live version [HERE](https://reactdevske.vercel.app/)
+Check out the live version [HERE](https://front-100devs-community.vercel.app/)
 
 ## Contributing to the project
 
