@@ -4,10 +4,7 @@ const { checkUserData } = require("../helperFunctions");
 const crypto = require("crypto");
 const sendMail = require("../../utils/sendMail");
 require("dotenv").config();
-const protocol = "http";
-const host = process.env.HOST || "localhost";
-const port = process.env.API_PORT || 3000;
-const url = protocol + "://" + host + ":" + port;
+const url = process.env.BASE_URL;
 
 const userRegister = async (req, res) => {
   const mailToken = crypto.randomBytes(32).toString("hex");
@@ -26,7 +23,7 @@ const userRegister = async (req, res) => {
           mailToken,
           isVerified: false,
         });
-        const verificationUrl = `${url}/${user._id}/verify/${mailToken}`;
+        const verificationUrl = `${BASE_URL}/${user._id}/verify/${mailToken}`;
         sendMail(email, "Verify Email", verificationUrl);
         return res.status(200).json({ status: "ok", data: user });
       } catch (error) {
